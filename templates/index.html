@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>File Upload</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.css">
+  </head>
+  <body>
+    <h1>File Upload</h1>
+    <form action="{{ url_for('uploader_file') }}" class="dropzone">
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.js"></script>
+    <hr/>
+   <div>
+   This is a list of the files you just uploaded, click on them to load/download them
+   <ul>
+    {% for file in filenames %}
+     <li value="{{url_for('uploader_file', filename=file)}}">{{file}}</li>
+    {% endfor %}
+   </ul>
+   <hr/>
+  </body>
+</html>
